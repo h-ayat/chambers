@@ -3,9 +3,10 @@ version: "3.9"
 services:
   chambers:
     build: .
+    container_name: chamb
     image: chambers:dev
     ports:
-      - "5000:5000"
+      - "5000:22"
     volumes:
-      - /home/fahim/opt/dev:/home/dev
+      - /opt/chamb:/root
 

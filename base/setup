@@ -1,0 +1,11 @@
+#!/bin/bash
+
+mkdir -p /root/.sbt/1.0/plugins \
+  && echo 'addSbtPlugin("ch.epfl.scala" % "sbt-bloop" % "1.4.8")' >> /root/.sbt/1.0/plugins/plugins.sbt
+
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+mv /opt/chambers/chambers.zsh-theme /root/.oh-my-zsh/themes/
+echo 'export PATH=$PATH:/opt/cs' >> /root/.zshrc
+sed -i 's/robbyrussell/chambers/g' .zshrc
+

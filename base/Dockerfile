@@ -14,13 +14,16 @@ RUN mkdir /setup/ \
 
 RUN cs install --install-dir /opt/cs --only-prebuilt scalafmt scalafix metals bloop ammonite
 RUN ssh-keygen -A
-RUN useradd -m dev \
-  && chsh -s /usr/bin/zsh dev 
-COPY sshd_config /etc/ssh/
-RUN chown -R dev:dev /etc/ssh/
 
-USER dev
+# need cleanup
 
-VOLUME ["/home/dev"]
+RUN pacman -S --noconfirm git vim
+RUN chsh -s /usr/bin/zsh root
+COPY setup /usr/bin/
+RUN chmod a+x /usr/bin/setup
+COPY chambers.zsh-theme /opt/chambers/
+# -----
+
+VOLUME ["/root"]
 EXPOSE 22
 CMD ["/usr/bin/sshd", "-D", "-f", "/etc/ssh/sshd_config"]
