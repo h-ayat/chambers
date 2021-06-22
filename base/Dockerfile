@@ -17,7 +17,7 @@ RUN ssh-keygen -A
 
 # need cleanup
 
-RUN pacman -S --noconfirm git vim
+RUN pacman -S --noconfirm git vim tig htop bwm-ng
 RUN chsh -s /usr/bin/zsh root
 COPY setup /usr/bin/
 RUN chmod a+x /usr/bin/setup
