@@ -1,7 +1,6 @@
-FROM hub.hamdocker.ir/archlinux:base-devel
+FROM archlinux:base-devel
 
-RUN pacman -Syu --noconfirm
-RUN pacman -S --noconfirm jdk11-openjdk sbt scala zsh zsh-theme-powerlevel10k openssh \
+RUN pacman -Syu --noconfirm && pacman -S --noconfirm jdk11-openjdk sbt scala zsh zsh-theme-powerlevel10k openssh git vim tig htop bwm-ng \
   && rm -rf /var/cache/pacman \
   && rm -rf /var/cache/pkgfile
 
@@ -17,7 +16,6 @@ RUN ssh-keygen -A
 
 # need cleanup
 
-RUN pacman -S --noconfirm git vim tig htop bwm-ng
 RUN chsh -s /usr/bin/zsh root
 COPY setup /usr/bin/
 RUN chmod a+x /usr/bin/setup
