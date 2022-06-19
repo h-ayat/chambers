@@ -1,6 +1,6 @@
 FROM archlinux:base-devel
 
-RUN pacman -Syu --noconfirm && pacman -S --noconfirm jdk11-openjdk sbt scala zsh zsh-theme-powerlevel10k openssh git vim tig htop bwm-ng \
+RUN pacman -Syu --noconfirm && pacman -S --noconfirm jdk11-openjdk sbt scala zsh zsh-theme-powerlevel10k openssh git vim tig htop bwm-ng ffmpeg perl-image-exiftool\
   && rm -rf /var/cache/pacman \
   && rm -rf /var/cache/pkgfile
 
