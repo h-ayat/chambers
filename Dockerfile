@@ -11,7 +11,7 @@ RUN mkdir /setup/ \
   && mv cs /usr/bin \
   && rm -rf /setup
 
-RUN cs install --install-dir /opt/cs --only-prebuilt scalafmt scalafix metals bloop ammonite
+RUN cs install --install-dir /opt/cs --only-prebuilt scalafmt scalafix bloop ammonite
 RUN ssh-keygen -A
 
 # need cleanup
